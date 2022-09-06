@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title> Pendu </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://kit.fontawesome.com/085dae5afa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="container-fluid d-flex flex-column h-100 justify-content-between ">
+
+    <div class="row">
+      <nav class=" header col-12 navbar navbar-light bg-dark mb-1">
+        <a class="navbar" href="/">
+          <img src="/images/pendu.png" width="50" height="50" class="logo mr-2" alt="Le Pendu">
+          <h2>Quel est ce Pokémon ?</h2>
+        </a>
+      </nav>
+
+      <div class="w-100 d-flex justify-content-between">
+        <h3 class="d-flex">Vies : 
+          <% for(var i=0; i<heart; i++) { %>
+          <img src="/images/coeur.png" width="50"/>
+          <% } %>
+        </h3>
+        <a href="/restart"><button>Nouveau mot <i class="fas fa-sync" ></i></button></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="w-100 d-flex justify-content-center">
+        <% for (i=0 ; i<underscore.length ; i++) { %>
+          <div class="font mr-3"><%= underscore[i]%></div>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="d-flex align-items-end row w-100">
+
+        <div class="col-1"></div>
+        <% 
+          for(var i=0;i<10;i++){
+          %>
+        <div class="col-1 mt-2">
+          <a href="/?lettre=<%=alphabet[i].lettre%>">
+            <button type="button" class="btn btn-secondary w-100"><%= alphabet[i].lettre%></button>
+          </a>
+        </div>
+        <%
+              }
+              %>
+        <div class="col-1"></div>
+        <div class="col-1"></div>
+        <% 
+          for(var i=10;i<20;i++){
+          %>
+        <div class="col-1 mt-2 mb-2">
+          <a href="/?lettre=<%=alphabet[i].lettre%>">
+            <button type="button" class="btn btn-secondary w-100"><%= alphabet[i].lettre%></button>
+          </a>
+        </div>
+        <%
+              }
+              %>
+
+        <div class="col-1"></div>
+        <div class="col-3"></div>
+        <% 
+          for(var i=20;i<26;i++){
+          %>
+        <div class="col-1">
+          <a href="/?lettre=<%=alphabet[i].lettre%>">
+            <button type="button" class="btn btn-secondary w-100"><%= alphabet[i].lettre%></button>
+          </a>
+        </div>
+        <%
+              }
+              %>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
