@@ -1,5 +1,5 @@
 body {
-  /* padding: 50px; */
+  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100vh;
   max-height: 100vh;
@@ -23,5 +23,18 @@ a {
 }
 
 .font {
-  font-size: 700%;
+  font-size: 500%;
+}
+
+/* .pokimage {
+  background-color: red;
+} */
+
+
+/* Nouvelles règles si la fenêtre fait au plus 700px de large */
+@media screen and (max-width: 700px)
+{
+    .middle {        
+        flex-direction: column;
+    }
 }
