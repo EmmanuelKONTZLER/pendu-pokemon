@@ -48,6 +48,8 @@ router.get('/', function(req, res, next) {
   // Vérifie que la lettre proposée n'ait pas déjà été proposée
   let error = []
   console.log("req.query : ",req.query.lettre)
+
+  /*
   if(req.query.lettre){
     if (lettresProposees.includes(req.query.lettre)) {
       // Si la lettre est déja proposée → Message erreur
@@ -66,7 +68,7 @@ router.get('/', function(req, res, next) {
     lettresProposees = []
     newWord()
   }
-
+  */
 
 
   // Affichage du mot mystère en bouclant les lettres 1 à 1
