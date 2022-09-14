@@ -8,14 +8,32 @@ let lettresProposees = [];
 let word = document.getElementById("lemot").dataset.world.toUpperCase();
 let splitedWord = word.split("");
 let underscore = "";
+let heart = 5
+let victoire = false
+let defaite = false
 
 
 // --------------------
 // Définition des fonctions
 // --------------------
 
+
+/* Affiche et actualise l'affichage du nombre de coeurs */
+var updateHeart = () => {
+  console.log('welcome in function updateHeart()')
+var heartcontener = document.getElementById('heartcontener')
+heartcontener.innerHTML = 'Vies : '
+  for(var i=0 ; i<heart ; i++){
+    var img = new Image(50, 50);
+      img.src = '/images/coeur.png';
+      // img.style.width = 50
+      heartcontener.appendChild(img);
+  }
+}
+
 /* Affiche le mot mystère en clair et/ou en _ */
 var updateMotMystere = () => {
+  console.log('welcome in function updateMotMystere()')
   for (var i = 0; i < splitedWord.length; i++) {
     // Si la lettre a été proposée, elle est affichée
     if (lettresProposees.includes(splitedWord[i])) {
@@ -26,14 +44,32 @@ var updateMotMystere = () => {
     }
   }
   document.getElementById("lemot").textContent = underscore;
+  updateHeart()
 };
 
+
+/* Vérifie la victoire */
+var victoireFunction = () => {
+  if (!underscore.includes('_')){
+    victoire = true
+    console.log('victoire : ', victoire)
+  }
+}
+
+var defaiteFunction = () => {
+  console.log("heart3 : ", heart)
+  if (heart == 0){
+    defaite = true
+    console.log('defaite : ', defaite)
+  }
+}
 
 
 // --------------------
 // Exécution des fonctions
 // --------------------
 
+updateHeart();
 updateMotMystere();
 
 for (var i = 1; i < document.getElementsByTagName("button").length; i++) {
@@ -43,5 +79,15 @@ for (var i = 1; i < document.getElementsByTagName("button").length; i++) {
       lettresProposees.push(this.textContent);
       underscore = "";
       updateMotMystere();
+      victoireFunction()
+      console.log('lettre dans le mot ? : ', word.includes(this.textContent))
+      if (!word.includes(this.textContent)) {
+        console.log("heart1 : ", heart)
+        heart = heart -1
+        console.log("heart2 : ", heart)
+        updateHeart()
+        defaiteFunction()
+      }
     });
 }
+

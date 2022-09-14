@@ -33,7 +33,7 @@ a {
 
 
 /* Nouvelles règles si la fenêtre fait au plus 700px de large */
-@media screen and (max-width: 700px)
+@media screen and (max-width: 1000px)
 {
     .middle {        
         flex-direction: column;
