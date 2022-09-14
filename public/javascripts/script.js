@@ -1,9 +1,17 @@
-console.log("pouet");
+// --------------------
+// Définition des variables
+// --------------------
 let lettresProposees = [];
 let word = "ELEPHANT";
 let splitedWord = word.split("");
 let underscore = "";
 
+
+// --------------------
+// Définition des fonctions
+// --------------------
+
+/* Affiche le mot mystère en clair et/ou en _ */
 var updateMotMystere = () => {
   for (var i = 0; i < splitedWord.length; i++) {
     // Si la lettre a été proposée, elle est affichée
@@ -17,24 +25,19 @@ var updateMotMystere = () => {
   document.getElementById("lemot").textContent = underscore;
 };
 
+
+
+// --------------------
+// Exécution des fonctions
+// --------------------
+
 updateMotMystere();
 
 for (var i = 1; i < document.getElementsByTagName("button").length; i++) {
   document
-    .getElementsByTagName("button")
-    [i].addEventListener("click", function () {
+    .getElementsByTagName("button")[i].addEventListener("click", function () {
       lettresProposees.push(this.textContent);
       underscore = "";
       updateMotMystere();
     });
 }
-
-
-// var pouet = document.getElementById('A')
-// var lettre = document.getElementsByTagName('button')
-// console.log('pouet :', pouet)
-// console.log('typeof pouet :', typeof pouet)
-
-// console.log('lettre :', lettre[1].textContent)
-// console.log('typeof lettre :', typeof lettre)
-// console.log('Object.keys(lettre) :', lettre.item())
