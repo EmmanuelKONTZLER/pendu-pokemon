@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var pokemonModel = require('../database/pokemons');
 
 let alphabet = [
   {lettre: "A"},
@@ -39,10 +40,16 @@ var newWord = () => {
 }
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  
+router.get('/', async function(req, res, next) {
+
+  var poke = await pokemonModel.aggregate([{ $sample: { size: 1 } }])
+  console.log("poke : ", poke)
+  world = poke[0].frenchName
+  image = `https://drive.google.com/uc?id=${poke[0].imgName}`
+  console.log("world : ", world)
+
   // res.render('index', { title: 'Express', alphabet: alphabet, underscore: underscore, heart: heart });
-  res.render('index', { title: 'Express', alphabet: alphabet, heart: heart });
+  res.render('index', { title: 'Express', alphabet: alphabet, heart: heart, world:world, image: image });
 });
 
 

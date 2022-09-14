@@ -1,8 +1,11 @@
+console.log('mot : ',document.getElementById("lemot").dataset.world)
+
+
 // --------------------
 // Définition des variables
 // --------------------
 let lettresProposees = [];
-let word = "ELEPHANT";
+let word = document.getElementById("lemot").dataset.world.toUpperCase();
 let splitedWord = word.split("");
 let underscore = "";
 
@@ -36,6 +39,7 @@ updateMotMystere();
 for (var i = 1; i < document.getElementsByTagName("button").length; i++) {
   document
     .getElementsByTagName("button")[i].addEventListener("click", function () {
+      console.log("lettre : ", this.textContent)
       lettresProposees.push(this.textContent);
       underscore = "";
       updateMotMystere();
