@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title> Pendu </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://kit.fontawesome.com/085dae5afa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="container-fluid d-flex flex-column h-100">
+
+    <div class="row">
+      <nav class=" header col-12 navbar navbar-light bg-dark mb-1">
+        <a class="navbar" href="/">
+          <img src="https://drive.google.com/uc?id=1F9QJ2VrAkNJbkN95_R1U7IwBky7k8QGj" width="50" height="50" class="logo mr-2" alt="Le Pendu">
+          <h2>Quel est ce Pokémon ?</h2>
+        </a>
+      </nav>
+
+    </div>
+
+
+<div class="middle d-flex justify-content-around align-items-center">
+    <img class="pokimage mr-5" src=<%= image %> alt="pokemon"/>
+    <div class="row">
+      <div class="w-100 d-flex justify-content-center">
+
+        <div id = "lemot" class="font mr-3"><br><br>Dommage,<br> il fallait trouver <%= poke.frenchName %> <br><br><%= poke.frenchDescription[0].description %></div>
+      </div>
+   </div>
+</div>
+
+<a href="/restart" id="rejouer" ><button type="button" class="btn btn-success">REJOUER</button></a>
+
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -51,6 +51,11 @@ router.get('/victoire', async function(req, res, next) {
   res.render('victoire', { title: 'Express', image: image, poke: poke[0] });
 });
 
+router.get('/defaite', async function(req, res, next) {
+
+  res.render('defaite', { title: 'Express', image: image, poke: poke[0] });
+});
+
 router.get('/restart', function(req, res, next) {
   // Permet de relancer une partie
   res.redirect('/');

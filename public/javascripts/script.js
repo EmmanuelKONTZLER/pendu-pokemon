@@ -52,7 +52,6 @@ var updateMotMystere = () => {
 var victoireFunction = () => {
   if (!underscore.includes('_')){
     victoire = true
-    console.log('victoire : ', victoire)
     fetch('/victoire', {
       method: 'GET',
       redirect: 'follow'
@@ -71,7 +70,17 @@ var defaiteFunction = () => {
   console.log("heart3 : ", heart)
   if (heart == 0){
     defaite = true
-    console.log('defaite : ', defaite)
+    fetch('/defaite', {
+      method: 'GET',
+      redirect: 'follow'
+    })
+    .then(response => {
+      console.log('response : ', response)
+      if (!response.redirected) {
+        console.log("reddirect")
+        window.location.href = response.url;
+    }
+    })
   }
 }
 
