@@ -37,4 +37,13 @@ a {
     .middle {        
         flex-direction: column;
     }
+    .lettre {
+      padding: 1px;
+      
+    }
+
+    .ratio {
+      aspect-ratio: 1/1;
+
+    }
 }
