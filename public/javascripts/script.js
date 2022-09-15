@@ -4,7 +4,7 @@ console.log('mot : ',document.getElementById("lemot").dataset.world)
 // --------------------
 // Définition des variables
 // --------------------
-let lettresProposees = [];
+let lettresProposees = ["-", " "];
 let word = document.getElementById("lemot").dataset.world.toUpperCase();
 let splitedWord = word.split("");
 let underscore = "";
@@ -53,6 +53,17 @@ var victoireFunction = () => {
   if (!underscore.includes('_')){
     victoire = true
     console.log('victoire : ', victoire)
+    fetch('/victoire', {
+      method: 'GET',
+      redirect: 'follow'
+    })
+    .then(response => {
+      console.log('response : ', response)
+      if (!response.redirected) {
+        console.log("reddirect")
+        window.location.href = response.url;
+    }
+    })
   }
 }
 
