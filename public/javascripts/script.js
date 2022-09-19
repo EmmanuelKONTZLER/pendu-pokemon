@@ -5,6 +5,7 @@ console.log('mot : ',document.getElementById("lemot").dataset.world)
 // Définition des variables
 // --------------------
 let lettresProposees = ["-", "."];
+let lettresAffichées = []
 let word = document.getElementById("lemot").dataset.world.toUpperCase();
 let splitedWord = word.split("");
 let underscore = "";
@@ -29,6 +30,19 @@ heartcontener.innerHTML = 'Vies : '
       // img.style.width = 50
       heartcontener.appendChild(img);
   }
+}
+
+/* Affiche les lettres proposées */
+var displayLetters = () =>{
+  console.log('welcome in function displayLetters()')
+  var lettre = document.getElementById('lettresaffichées')
+  lettre.innerHTML = ""
+  var temp = ""
+  for(var i=0 ; i<lettresAffichées.length ; i++){
+    temp = temp + lettresAffichées[i] + " "
+  }
+  console.log('temp : ', temp)
+  lettre.innerHTML = temp
 }
 
 /* Affiche le mot mystère en clair et/ou en _ */
@@ -91,15 +105,18 @@ var defaiteFunction = () => {
 
 updateHeart();
 updateMotMystere();
+displayLetters()
 
 for (var i = 1; i < document.getElementsByTagName("button").length; i++) {
   document
     .getElementsByTagName("button")[i].addEventListener("click", function () {
       console.log("lettre : ", this.textContent)
       lettresProposees.push(this.textContent);
+      lettresAffichées.push(this.textContent)
       underscore = "";
       updateMotMystere();
-      victoireFunction()
+      victoireFunction();
+      displayLetters()
       console.log('lettre dans le mot ? : ', word.includes(this.textContent))
       if (!word.includes(this.textContent)) {
         console.log("heart1 : ", heart)
