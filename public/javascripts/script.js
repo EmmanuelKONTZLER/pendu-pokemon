@@ -4,7 +4,7 @@ console.log('mot : ',document.getElementById("lemot").dataset.world)
 // --------------------
 // Définition des variables
 // --------------------
-let lettresProposees = ["-", " "];
+let lettresProposees = ["-", "."];
 let word = document.getElementById("lemot").dataset.world.toUpperCase();
 let splitedWord = word.split("");
 let underscore = "";

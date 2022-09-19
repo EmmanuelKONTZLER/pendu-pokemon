@@ -38,11 +38,15 @@ let alphabet = [
 router.get('/', async function(req, res, next) {
 
   poke = await pokemonModel.aggregate([{ $sample: { size: 1 } }])
-  console.log("poke : ", poke)
   world = poke[0].frenchName
   image = `https://drive.google.com/uc?id=${poke[0].imgName}`
+  var newOne = world.replaceAll(" ", "")
+  newOne = newOne.replaceAll("é", "e")
+  newOne = newOne.replaceAll("è", "e")
+  newOne = newOne.replaceAll("ê", "e")
+  newOne = newOne.replaceAll("ï", "i")
 
-  res.render('index', { title: 'Express', alphabet: alphabet, world:world, image: image });
+  res.render('index', { title: 'Express', alphabet: alphabet, world:newOne, image: image });
 });
 
 
