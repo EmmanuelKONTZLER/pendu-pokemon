@@ -45,6 +45,7 @@ router.get('/', async function(req, res, next) {
   newOne = newOne.replaceAll("è", "e")
   newOne = newOne.replaceAll("ê", "e")
   newOne = newOne.replaceAll("ï", "i")
+  newOne = newOne.replaceAll("ô", "o")
 
   res.render('index', { title: 'Express', alphabet: alphabet, world:newOne, image: image });
 });

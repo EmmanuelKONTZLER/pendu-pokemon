@@ -111,20 +111,27 @@ for (var i = 1; i < document.getElementsByTagName("button").length; i++) {
   document
     .getElementsByTagName("button")[i].addEventListener("click", function () {
       console.log("lettre : ", this.textContent)
-      lettresProposees.push(this.textContent);
-      lettresAffichées.push(this.textContent)
-      underscore = "";
-      updateMotMystere();
-      victoireFunction();
-      displayLetters()
-      console.log('lettre dans le mot ? : ', word.includes(this.textContent))
-      if (!word.includes(this.textContent)) {
-        console.log("heart1 : ", heart)
-        heart = heart -1
-        console.log("heart2 : ", heart)
-        updateHeart()
-        defaiteFunction()
+      console.log("lettresProposées.includes(this.textContent) : ", lettresProposees.includes(this.textContent))
+
+      if (!lettresProposees.includes(this.textContent)){
+        console.log("good")
+        lettresProposees.push(this.textContent);
+        lettresAffichées.push(this.textContent)
+        underscore = "";
+        updateMotMystere();
+        victoireFunction();
+        displayLetters()
+        console.log('lettre dans le mot ? : ', word.includes(this.textContent))
+        if (!word.includes(this.textContent)) {
+          console.log("heart1 : ", heart)
+          heart = heart -1
+          console.log("heart2 : ", heart)
+          updateHeart()
+          defaiteFunction()
+        }
       }
+
+
     });
 }
 
